@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+nav{
+  background: var(--mainBlue);
+}
+
+.nav-link{
+  color: var(--mainWhite) !important;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
