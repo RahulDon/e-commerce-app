@@ -125,7 +125,7 @@ class ProductProvider extends Component {
         });
 
         if(subTotal === 0){
-            this.setState({cartTax:0});
+            this.state.cartTax = 0;
         }
 
         total = subTotal + this.state.cartTax;
