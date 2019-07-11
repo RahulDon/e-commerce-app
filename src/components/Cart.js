@@ -16,9 +16,11 @@ export default class Cart extends Component {
                             if(cart.length > 0) {
                                 return (
                                     <React.Fragment>
-                                        <Title name="your" title="cart" />
-                                        <CartColumn />
-                                        <CartList value={value} />
+                                        <div className="component-padding">
+                                            <Title name="your" title="cart" />
+                                            <CartColumn />
+                                            <CartList value={value} />
+                                        </div>
                                     </React.Fragment>
                                 );
                             }else{
