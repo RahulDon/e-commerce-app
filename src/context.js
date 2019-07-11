@@ -45,7 +45,7 @@ class ProductProvider extends Component {
     addToCart = (id) => {
        var subTotal = 0;
        var total = 0;
-       this.state.cartTax = 10;
+       this.setState({cartTax:10});
        let tempProduct = [...this.state.products];
        const index = tempProduct.indexOf(this.getItem(id));
        const product = tempProduct[index];
@@ -81,8 +81,7 @@ class ProductProvider extends Component {
     };
 
     increment = (id) => {
-        this.state.cartSubTotal = 0;
-        this.state.cartTax = 10;
+        this.setState({cartSubTotal:0,cartTax:10});
         var subTotal = 0;
         var total = 0;
         let tempCart = [...this.state.cart];
@@ -109,11 +108,10 @@ class ProductProvider extends Component {
         const index = tempCart.indexOf(this.getItem(id));
         const product = tempCart[index];
 
-        if(product.count == 0){
+        if(product.count === 0){
             return;
         }
-        this.state.cartSubTotal = 0;
-        this.state.cartTax = 10;
+        this.setState({cartSubTotal:0,cartTax:10});
         var subTotal = 0;
         var total = 0;
         
@@ -126,8 +124,8 @@ class ProductProvider extends Component {
             subTotal += item.total
         });
 
-        if(subTotal == 0){
-            this.state.cartTax = 0;
+        if(subTotal === 0){
+            this.setState({cartTax:0});
         }
 
         total = subTotal + this.state.cartTax;
@@ -146,7 +144,7 @@ class ProductProvider extends Component {
         const index = tempCart.indexOf(this.getItem(id));
         tempCart.splice(index, 1);
 
-        this.state.cartSubTotal = 0;
+        this.setState({cartSubTotal:0});
         var subTotal = 0;
         var total = 0;
 
@@ -163,8 +161,9 @@ class ProductProvider extends Component {
                 cartTotal : total
             }
         })
-
-
+        
+        if(tempCart.length === 0)
+            this.setProducts();
     }
 
     clearCart = () => {
